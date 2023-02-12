@@ -25,7 +25,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 
-
+// get persons
 app.MapGet("/persons", async (IPersonRepository repository, int? startIndex, int? pageSize, CancellationToken cancellationToken) =>
 {
     var persons = await repository.GetPeople(startIndex, pageSize, cancellationToken);
