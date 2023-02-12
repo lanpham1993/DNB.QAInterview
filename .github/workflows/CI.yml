@@ -1,0 +1,28 @@
+name: CI
+
+on:
+ push:
+    branches: [ master ]
+ pull_request:
+    branches: [ master ]
+    
+jobs:
+  build:
+    runs-on: windows-lastest
+    steps:
+    
+     - uses: actions/checkout@main
+   
+     - name: Setup .NET
+       uses: actions/setup-dotnet@v3
+       with:
+         dotnet-version: ${{ env.DOTNET_VERSION }}
+    # Installs any NuGet packages required.
+     - name: Install dependencies
+       run: dotnet restore
+    # Builds the project
+     - name: Build
+       run: dotnet build --configuration Release --no-restore
+    # Runs any tests in the project
+     - name: Test
+       run: dotnet test --no-restore --verbosity normal
