@@ -9,20 +9,11 @@ on:
 jobs:
   build:
     runs-on: windows-lastest
+    name: Dotner build
     steps:
-    
-     - uses: actions/checkout@main
-   
-     - name: Setup .NET
-       uses: actions/setup-dotnet@v3
+     - uses: actions/checkout@master
+     - name: Setup dotnet
+       uses: actions/setup-dotnet@v1
        with:
-         dotnet-version: ${{ env.DOTNET_VERSION }}
-    # Installs any NuGet packages required.
-     - name: Install dependencies
-       run: dotnet restore
-    # Builds the project
-     - name: Build
-       run: dotnet build --configuration Release --no-restore
-    # Runs any tests in the project
-     - name: Test
-       run: dotnet test --no-restore --verbosity normal
+          dotnet-version: '3.1.100' # SDK Version to use.
+     - run: dotnet build <solution or project>
