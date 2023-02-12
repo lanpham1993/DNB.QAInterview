@@ -2,7 +2,6 @@
 
 namespace DNB.QAInterview.PersonService;
 
-// Hello world
 // Pretend this repository is on an Azure SQL Database
 public class DummyPersonRepository : IPersonRepository
 {
