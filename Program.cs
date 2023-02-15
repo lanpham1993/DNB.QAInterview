@@ -3,7 +3,6 @@ using DNB.QAInterview.Models;
 using DNB.QAInterview.PersonService;
 using Microsoft.AspNetCore.Http.HttpResults;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
