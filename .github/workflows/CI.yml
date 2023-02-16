@@ -18,25 +18,19 @@ jobs:
           dotnet-version: '7.0' # SDK Version to use.
      - run: dotnet build DNB.QAInterview.csproj
      
-      # Install the newman command line utility and also install the html extra reporter
-     - name: Install newman
-       run: |
-         npm install -g newman
-         npm install -g newman-reporter-htmlextra
-
-      # Make directory to upload the test results
-     - name: Make Directory for results
-       run: mkdir -p testResults
-
-
-     # Run the POSTMAN collection
-     - name: Run POSTMAN collection
-       run: |
-         newman run ./"Postman Collections"/run_test_API.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
-
-     # Upload the contents of Test Results directory to workspace
-     - name: Output the run Details
-       uses: actions/upload-artifact@v2
+     - name: Login to Docker Hub
+       uses: docker/login-action@v2
        with:
-         name: RunReports
-         path: testResults
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+     
+     - name: Set up Docker Buildx
+       uses: docker/setup-buildx-action@v2
+    
+     - name: Build and push
+       uses: docker/build-push-action@v4
+       with:
+         context: .
+         file: ./Dockerfile
+         push: true
+         tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
