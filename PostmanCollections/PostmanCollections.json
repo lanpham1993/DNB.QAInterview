@@ -1,0 +1,934 @@
+{
+	"info": {
+		"_postman_id": "34e6e47d-a7f5-44ca-ac2b-1992757807dd",
+		"name": "Test API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "positive testcases",
+			"item": [
+				{
+					"name": "Get person successful",
+					"item": [
+						{
+							"name": "get list persons successful",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f1c0115d-2e59-4cd0-80ca-6372e852ed2d",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "138d2dba-0050-4ff6-af05-88f64be62faa",
+										"exec": [
+											"const schema = {\r",
+											"\"type\": \"array\",\r",
+											"\"items\":\r",
+											"{\r",
+											"\"type\": \"object\",\r",
+											"\"Properties\":\r",
+											"{\r",
+											"\"id\": {\"type\": \"integer\"},\r",
+											"\"name\": {\"type\": \"string\"},\r",
+											"\"address\": {\"type\": \"string\"},\r",
+											"\"phoneNumber\": {\"type\": \"string\"},\r",
+											"\"email1\": {\"type\": \"int\"},\r",
+											"}\r",
+											"}\r",
+											"};\r",
+											"pm.test (\"get list all persons successful\",function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"})\r",
+											"\r",
+											"pm.test (\"scheme validate\",function(){\r",
+											"   pm.response.to.have.jsonSchema(schema);\r",
+											"})"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "3123e0cb-036e-4bf1-8f14-16e25bbfa149",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "{{based-url}}/persons"
+							},
+							"response": []
+						},
+						{
+							"name": "get list persons with Page size successful",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "7cf6dcf5-8a20-4378-9dee-68cdbd6fa545",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "112a3f50-2ff1-4647-833d-ac25cd6974f0",
+										"exec": [
+											"pm.test (\"get list persons with page size successful\",function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.expect(Object.keys(pm.response.json()).length).to.eql(10);\r",
+											"})\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "8822fc28-41c4-4c23-ba9d-fc14f5f3a997",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{based-url}}/persons?pageSize=10",
+									"host": [
+										"{{based-url}}"
+									],
+									"path": [
+										"persons"
+									],
+									"query": [
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get person with specific id successful",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "d90c3de1-dc61-410a-b545-1a33462995de",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "aaff778a-8b2e-490c-9e0b-bfc9579e19df",
+										"exec": [
+											"pm.test (\"check data person with specify id\",function(){\r",
+											"    pm.response.to.have.status(200);\r",
+											"    const reponseJson = pm.response.json();\r",
+											"    pm.expect(reponseJson).to.have.property(\"id\",3);\r",
+											"    pm.expect(reponseJson).to.have.property(\"name\",\"Person 3\");\r",
+											"    pm.expect(reponseJson).to.have.property(\"address\",\"Address 3\");\r",
+											"    pm.expect(reponseJson).to.have.property(\"phoneNumber\",\"Phone Number 3\");\r",
+											"    pm.expect(reponseJson).to.have.property(\"email\",\"Email 3\");\r",
+											"})\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "b00eeecd-90e2-4e09-8c47-1db950d4eb2a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{based-url}}/persons/:id",
+									"host": [
+										"{{based-url}}"
+									],
+									"path": [
+										"persons",
+										":id"
+									],
+									"query": [
+										{
+											"key": null,
+											"value": "",
+											"type": "text",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"id": "de5e5fbb-5b18-428f-9079-f450c5048f34",
+											"key": "id",
+											"value": "3",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "2a1db207-4222-4375-99dc-6c29ad8cd48e",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "create new person successful",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "3b0eb648-3415-4805-9798-6cf7b155e237",
+								"exec": [
+									"// make sure no existing person with id = 555"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e5ec763-12ed-41c8-83df-79fb4b2b76aa",
+								"exec": [
+									"pm.test (\"create new person successful\",function(){\r",
+									"    pm.response.to.have.status(201);\r",
+									"})\r",
+									"\r",
+									"pm.sendRequest(pm.response.headers.get(\"Location\"), function (err, res) {\r",
+									"    pm.test(\"person created\", function () {\r",
+									"        pm.expect(res.code).to.eql(200);\r",
+									"        pm.test(\"person created successful\", function () {\r",
+									"           pm.expect(res.json().id).to.eql(555555);\r",
+									"           pm.expect(res.json().name).to.eql('test create person');\r",
+									"           pm.expect(res.json().phoneNumber).to.eql('test phone number');\r",
+									"           pm.expect(res.json().email).to.eql('test email');\r",
+									"           pm.expect(res.json().address).to.eql('test address');\r",
+									"       });\r",
+									"    });\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "d786d2a8-4113-46c3-a154-c56c1c97d988",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 555555,\r\n  \"name\": \"test create person\",\r\n  \"address\": \"test address\",\r\n  \"phoneNumber\": \"test phone number\",\r\n  \"email\": \"test email\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{based-url}}/persons"
+					},
+					"response": []
+				},
+				{
+					"name": "update person successful",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "be0f14cd-390f-410d-9491-2788a2a48c81",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "b69173d2-4bec-4e4f-ac3e-d43bb5c0fb3d",
+								"exec": [
+									"pm.test (\"update person with valid data and save successful\",function(){\r",
+									"   pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"//pm.sendRequest(\"{{based-url}}/12\", function (err, res) {\r",
+									"//       pm.expect(res.code).to.eql(200);\r",
+									"//        pm.test(\"person updated successful\", function () {\r",
+									"//           pm.expect(res.json().id).to.eql(12);\r",
+									"//           pm.expect(res.json().name).to.eql('update name');\r",
+									"//           pm.expect(res.json().phoneNumber).to.eql('update phone number');\r",
+									"//           pm.expect(res.json().email).to.eql('update email');\r",
+									" //          pm.expect(res.json().address).to.eql('update address');\r",
+									"//       });\r",
+									"    \r",
+									"//});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "b6d280f8-dfe1-4a3e-9e80-3f665172a69f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": 12,\r\n  \"name\": \"update name\",\r\n  \"address\": \"update address\",\r\n  \"phoneNumber\": \"update phone number\",\r\n  \"email\": \"update email\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{based-url}}/persons/:id",
+							"host": [
+								"{{based-url}}"
+							],
+							"path": [
+								"persons",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "e7b54b17-ad7a-4a1f-a781-caeabaef4491",
+									"key": "id",
+									"value": "12",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete person successful",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a32faf79-7908-4261-a3b5-dff68d894fe2",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "db32ad43-3637-49c1-a5c6-9439468c8ca1",
+								"exec": [
+									"pm.test (\"update person with valid data and save successful\",function(){\r",
+									"    pm.response.to.have.status(204);\r",
+									"})\r",
+									"\r",
+									"pm.sendRequest(\"https://localhost:44353/persons/100\", function (err, res) {\r",
+									"    pm.test (\"cannot get person just deleted\",function(){\r",
+									"pm.expect(res.code).to.eql(404);\r",
+									"});         \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "5ce5aab0-15ee-4724-af2f-71814881e955",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44353/persons/:id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44353",
+							"path": [
+								"persons",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "100",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "348d2c45-4d7b-4d9b-8121-2c38157b1a15",
+								"exec": [
+									"pm.test (\"create new person successful\",function(){\r",
+									"    pm.response.to.have.status(201);\r",
+									"})\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "c9280606-b359-45f6-b1dd-a9fb9bf4dc4e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44353/persons/:id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44353",
+							"path": [
+								"persons",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": null,
+									"type": "any"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "44af4707-cb69-47b5-8f61-c16f2018ffb4"
+		},
+		{
+			"name": "negative test cases",
+			"item": [
+				{
+					"name": "create person with invalid data",
+					"item": [
+						{
+							"name": "create new person with wrong datatype",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f0e92826-4ccc-43be-869f-1238ee7a63d6",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "3f798b58-e230-4fe9-85c7-845356ed9399",
+										"exec": [
+											"pm.test (\"check error code when create new person with wrong datatype\",function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"})\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "44a9676c-63d0-4233-833f-055d9585c341",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"test\",\r\n  \"name\": \"string\",\r\n  \"address\": \"string\",\r\n  \"phoneNumber\": \"string\",\r\n  \"email\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://localhost:44353/persons"
+							},
+							"response": []
+						},
+						{
+							"name": "create new person with empty data",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "0ce709ae-4bfc-4c8c-b57b-65b1405ddfea",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "897b97fa-92be-44ac-b699-f797fa8e9c4e",
+										"exec": [
+											"pm.test (\"check error code when create new person with wrong datatype\",function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"})\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "a99701d3-caa3-4f9d-8c5f-13c48f54bbed",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"test\",\r\n  \"name\": \"string\",\r\n  \"address\": \"string\",\r\n  \"phoneNumber\": \"string\",\r\n  \"email\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://localhost:44353/persons"
+							},
+							"response": []
+						},
+						{
+							"name": "create new person that already exists",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "3f02cb9c-25a7-41f1-806e-ed201fd242c0",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "5aa2be96-578d-4c7d-921b-667fed9fd0ba",
+										"exec": [
+											"pm.test (\"check error code when create new person with wrong datatype\",function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"})\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "10a12826-ae95-4ff4-89d3-9645e69d0284",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"test\",\r\n  \"name\": \"string\",\r\n  \"address\": \"string\",\r\n  \"phoneNumber\": \"string\",\r\n  \"email\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "https://localhost:44353/persons"
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "af8729cc-9c73-4d76-b854-4294dd3d67b7",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "update person with invalid data",
+					"item": [
+						{
+							"name": "update person with wrong datatype",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "775b03f6-e38e-4959-bf87-a11b62083fdc",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "defca10b-7d93-4f1e-ba54-d40e9ae034fa",
+										"exec": [
+											"pm.test (\"check error when updating person with wrong datatype\",function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"})\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "211cddac-2a31-4e6c-bbaf-6c7d63e80d56",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"haha\",\r\n  \"name\": \"string 12\",\r\n  \"address\": \"string\",\r\n  \"phoneNumber\": \"string\",\r\n  \"email\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44353/persons/:id",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44353",
+									"path": [
+										"persons",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "8c108921-cec0-44de-bc67-efa5861ecce0",
+											"key": "id",
+											"value": "12",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update person with empty data",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "ced659eb-4218-4f1f-8491-01ab5616abc6",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"id": "3fc28c48-beca-4e47-90d0-b4f02a2ee36b",
+										"exec": [
+											"pm.test (\"check error when updating person with empty data\",function(){\r",
+											"    pm.response.to.have.status(400);\r",
+											"})\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"_postman_id": "8dd3e305-9b47-40c3-8bcf-24ddadab2aa4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://localhost:44353/persons/:id",
+									"protocol": "https",
+									"host": [
+										"localhost"
+									],
+									"port": "44353",
+									"path": [
+										"persons",
+										":id"
+									],
+									"variable": [
+										{
+											"id": "037859af-6264-455a-8000-ef805d43e95d",
+											"key": "id",
+											"value": "12",
+											"type": "string"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_id": "28270064-8425-4d4a-83a6-d54e481ad5ce",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "get person with invalid id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9cd51306-cc00-46f6-a61e-067b43ff1330",
+								"exec": [
+									"pm.test (\"error when getting person with invalid id\",function(){\r",
+									"    pm.response.to.have.status(404);\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "1e18177f-eba1-460f-b4bb-51aa80f7d274",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44353/persons/:id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44353",
+							"path": [
+								"persons",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "f7ffe9d4-512f-4a15-bb41-0742a1379c9b",
+									"key": "id",
+									"value": "test",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete person that already deleted",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "8e701370-b5b9-4a82-8c4e-64b9213ed790",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1ffcc811-1802-48cb-941b-663be70a5cf3",
+								"exec": [
+									"pm.test (\"update person with valid data and save successful\",function(){\r",
+									"    pm.response.to.have.status(204);\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "2a3dff6f-2b22-42b0-85a3-4e638667156e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44353/persons/:id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44353",
+							"path": [
+								"persons",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "f7a4b8fa-0152-4158-bb8d-99c974e95122",
+									"key": "id",
+									"value": "12",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete person with invalid id",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "11f67a82-2fbc-4d1e-9630-1044cdee6e3c",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "dd0b6cba-50e0-4b78-abac-ca463ef7d13a",
+								"exec": [
+									"pm.test (\"check error when deleting person with invalid id\",function(){\r",
+									"    pm.response.to.have.status(404);\r",
+									"})\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"_postman_id": "3e7363ca-9caa-4b77-abd0-aae77765dd23",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44353/persons/:id",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44353",
+							"path": [
+								"persons",
+								":id"
+							],
+							"variable": [
+								{
+									"id": "a56bd5b7-51cd-42f7-92e9-4195c823dc70",
+									"key": "id",
+									"value": "test",
+									"type": "string"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"_postman_id": "fa8b945b-1307-41d9-af18-00c06ef5de4f"
+		}
+	]
+}
