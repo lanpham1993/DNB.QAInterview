@@ -301,7 +301,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"id\": 12,\r\n  \"name\": \"update name\",\r\n  \"address\": \"update address\",\r\n  \"phoneNumber\": \"update phone number\",\r\n  \"email\": \"update email\"\r\n}",
+							"raw": "{\r\n  \"id\": 1500,\r\n  \"name\": \"update name\",\r\n  \"address\": \"update address\",\r\n  \"phoneNumber\": \"update phone number\",\r\n  \"email\": \"update email\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -319,9 +319,8 @@
 							],
 							"variable": [
 								{
-									"id": "e7b54b17-ad7a-4a1f-a781-caeabaef4491",
 									"key": "id",
-									"value": "12"
+									"value": "1500"
 								}
 							]
 						}
