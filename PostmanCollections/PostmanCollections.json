@@ -350,7 +350,7 @@
 									"    pm.response.to.have.status(204);\r",
 									"})\r",
 									"\r",
-									"pm.sendRequest(\"{{based-url}}/persons/100\", function (err, res) {\r",
+									"pm.sendRequest(pm.environment.get(\"based-url\") + \"/persons/100\", function (err, res) {\r",
 									"    pm.test (\"cannot get person just deleted\",function(){\r",
 									"pm.expect(res.code).to.eql(404);\r",
 									"});         \r",
