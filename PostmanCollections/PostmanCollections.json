@@ -753,12 +753,10 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "https://localhost:44353/persons/:id",
-							"protocol": "https",
+							"raw": "{{based-url}}/persons/:id",
 							"host": [
-								"localhost"
+								"{{based-url}}"
 							],
-							"port": "44353",
 							"path": [
 								"persons",
 								":id"
