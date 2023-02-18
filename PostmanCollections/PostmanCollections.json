@@ -588,7 +588,7 @@
 										}
 									}
 								},
-								"url": "https://localhost:44353/persons"
+								"url": "{{based-url}}/persons"
 							},
 							"response": []
 						}
