@@ -393,51 +393,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "New Request",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "348d2c45-4d7b-4d9b-8121-2c38157b1a15",
-								"exec": [
-									"pm.test (\"create new person successful\",function(){\r",
-									"    pm.response.to.have.status(201);\r",
-									"})\r",
-									"\r",
-									"\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "c9280606-b359-45f6-b1dd-a9fb9bf4dc4e",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "{{based-url}}/persons/:id",
-							"host": [
-								"{{based-url}}"
-							],
-							"path": [
-								"persons",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": null
-								}
-							]
-						}
-					},
-					"response": []
 				}
 			],
 			"id": "44af4707-cb69-47b5-8f61-c16f2018ffb4"
