@@ -276,17 +276,17 @@
 									"});\r",
 									"\r",
 									"\r",
-									"//pm.sendRequest(\"{{based-url}}/12\", function (err, res) {\r",
-									"//       pm.expect(res.code).to.eql(200);\r",
-									"//        pm.test(\"person updated successful\", function () {\r",
-									"//           pm.expect(res.json().id).to.eql(12);\r",
-									"//           pm.expect(res.json().name).to.eql('update name');\r",
-									"//           pm.expect(res.json().phoneNumber).to.eql('update phone number');\r",
-									"//           pm.expect(res.json().email).to.eql('update email');\r",
-									" //          pm.expect(res.json().address).to.eql('update address');\r",
-									"//       });\r",
+									"pm.sendRequest(pm.environment.get(\"based-url\") + \"/persons/12\", function (err, res) {\r",
+									"       pm.expect(res.code).to.eql(200);\r",
+									"        pm.test(\"person updated successful\", function () {\r",
+									"           pm.expect(res.json().id).to.eql(12);\r",
+									"           pm.expect(res.json().name).to.eql('update name');\r",
+									"           pm.expect(res.json().phoneNumber).to.eql('update phone number');\r",
+									"          pm.expect(res.json().email).to.eql('update email');\r",
+									"           pm.expect(res.json().address).to.eql('update address');\r",
+									"       });\r",
 									"    \r",
-									"//});"
+									"});"
 								],
 								"type": "text/javascript"
 							}
