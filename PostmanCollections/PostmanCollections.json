@@ -56,7 +56,7 @@
 									}
 								}
 							],
-							"_postman_id": "3123e0cb-036e-4bf1-8f14-16e25bbfa149",
+							"id": "3123e0cb-036e-4bf1-8f14-16e25bbfa149",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -96,7 +96,7 @@
 									}
 								}
 							],
-							"_postman_id": "8822fc28-41c4-4c23-ba9d-fc14f5f3a997",
+							"id": "8822fc28-41c4-4c23-ba9d-fc14f5f3a997",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -155,7 +155,7 @@
 									}
 								}
 							],
-							"_postman_id": "b00eeecd-90e2-4e09-8c47-1db950d4eb2a",
+							"id": "b00eeecd-90e2-4e09-8c47-1db950d4eb2a",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -183,8 +183,7 @@
 										{
 											"id": "de5e5fbb-5b18-428f-9079-f450c5048f34",
 											"key": "id",
-											"value": "3",
-											"type": "string"
+											"value": "3"
 										}
 									]
 								}
@@ -192,8 +191,7 @@
 							"response": []
 						}
 					],
-					"_postman_id": "2a1db207-4222-4375-99dc-6c29ad8cd48e",
-					"_postman_isSubFolder": true
+					"id": "2a1db207-4222-4375-99dc-6c29ad8cd48e"
 				},
 				{
 					"name": "create new person successful",
@@ -235,7 +233,7 @@
 							}
 						}
 					],
-					"_postman_id": "d786d2a8-4113-46c3-a154-c56c1c97d988",
+					"id": "d786d2a8-4113-46c3-a154-c56c1c97d988",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -294,7 +292,7 @@
 							}
 						}
 					],
-					"_postman_id": "b6d280f8-dfe1-4a3e-9e80-3f665172a69f",
+					"id": "b6d280f8-dfe1-4a3e-9e80-3f665172a69f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -323,8 +321,7 @@
 								{
 									"id": "e7b54b17-ad7a-4a1f-a781-caeabaef4491",
 									"key": "id",
-									"value": "12",
-									"type": "string"
+									"value": "12"
 								}
 							]
 						}
@@ -363,7 +360,7 @@
 							}
 						}
 					],
-					"_postman_id": "5ce5aab0-15ee-4724-af2f-71814881e955",
+					"id": "5ce5aab0-15ee-4724-af2f-71814881e955",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -380,21 +377,17 @@
 							}
 						},
 						"url": {
-							"raw": "https://localhost:44353/persons/:id",
-							"protocol": "https",
+							"raw": "{{based-url-persons}}/:id",
 							"host": [
-								"localhost"
+								"{{based-url-persons}}"
 							],
-							"port": "44353",
 							"path": [
-								"persons",
 								":id"
 							],
 							"variable": [
 								{
 									"key": "id",
-									"value": "100",
-									"type": "string"
+									"value": "100"
 								}
 							]
 						}
@@ -420,7 +413,7 @@
 							}
 						}
 					],
-					"_postman_id": "c9280606-b359-45f6-b1dd-a9fb9bf4dc4e",
+					"id": "c9280606-b359-45f6-b1dd-a9fb9bf4dc4e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -441,8 +434,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": null,
-									"type": "any"
+									"value": null
 								}
 							]
 						}
@@ -450,7 +442,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "44af4707-cb69-47b5-8f61-c16f2018ffb4"
+			"id": "44af4707-cb69-47b5-8f61-c16f2018ffb4"
 		},
 		{
 			"name": "negative test cases",
@@ -486,7 +478,7 @@
 									}
 								}
 							],
-							"_postman_id": "44a9676c-63d0-4233-833f-055d9585c341",
+							"id": "44a9676c-63d0-4233-833f-055d9585c341",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -534,7 +526,7 @@
 									}
 								}
 							],
-							"_postman_id": "a99701d3-caa3-4f9d-8c5f-13c48f54bbed",
+							"id": "a99701d3-caa3-4f9d-8c5f-13c48f54bbed",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -582,7 +574,7 @@
 									}
 								}
 							],
-							"_postman_id": "10a12826-ae95-4ff4-89d3-9645e69d0284",
+							"id": "10a12826-ae95-4ff4-89d3-9645e69d0284",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -603,8 +595,7 @@
 							"response": []
 						}
 					],
-					"_postman_id": "af8729cc-9c73-4d76-b854-4294dd3d67b7",
-					"_postman_isSubFolder": true
+					"id": "af8729cc-9c73-4d76-b854-4294dd3d67b7"
 				},
 				{
 					"name": "update person with invalid data",
@@ -637,7 +628,7 @@
 									}
 								}
 							],
-							"_postman_id": "211cddac-2a31-4e6c-bbaf-6c7d63e80d56",
+							"id": "211cddac-2a31-4e6c-bbaf-6c7d63e80d56",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -668,8 +659,7 @@
 										{
 											"id": "8c108921-cec0-44de-bc67-efa5861ecce0",
 											"key": "id",
-											"value": "12",
-											"type": "string"
+											"value": "12"
 										}
 									]
 								}
@@ -704,7 +694,7 @@
 									}
 								}
 							],
-							"_postman_id": "8dd3e305-9b47-40c3-8bcf-24ddadab2aa4",
+							"id": "8dd3e305-9b47-40c3-8bcf-24ddadab2aa4",
 							"protocolProfileBehavior": {
 								"disableBodyPruning": true
 							},
@@ -735,8 +725,7 @@
 										{
 											"id": "037859af-6264-455a-8000-ef805d43e95d",
 											"key": "id",
-											"value": "12",
-											"type": "string"
+											"value": "12"
 										}
 									]
 								}
@@ -744,8 +733,7 @@
 							"response": []
 						}
 					],
-					"_postman_id": "28270064-8425-4d4a-83a6-d54e481ad5ce",
-					"_postman_isSubFolder": true
+					"id": "28270064-8425-4d4a-83a6-d54e481ad5ce"
 				},
 				{
 					"name": "get person with invalid id",
@@ -763,7 +751,7 @@
 							}
 						}
 					],
-					"_postman_id": "1e18177f-eba1-460f-b4bb-51aa80f7d274",
+					"id": "1e18177f-eba1-460f-b4bb-51aa80f7d274",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -785,8 +773,7 @@
 								{
 									"id": "f7ffe9d4-512f-4a15-bb41-0742a1379c9b",
 									"key": "id",
-									"value": "test",
-									"type": "string"
+									"value": "test"
 								}
 							]
 						}
@@ -821,7 +808,7 @@
 							}
 						}
 					],
-					"_postman_id": "2a3dff6f-2b22-42b0-85a3-4e638667156e",
+					"id": "2a3dff6f-2b22-42b0-85a3-4e638667156e",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -852,8 +839,7 @@
 								{
 									"id": "f7a4b8fa-0152-4158-bb8d-99c974e95122",
 									"key": "id",
-									"value": "12",
-									"type": "string"
+									"value": "12"
 								}
 							]
 						}
@@ -888,7 +874,7 @@
 							}
 						}
 					],
-					"_postman_id": "3e7363ca-9caa-4b77-abd0-aae77765dd23",
+					"id": "3e7363ca-9caa-4b77-abd0-aae77765dd23",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -919,8 +905,7 @@
 								{
 									"id": "a56bd5b7-51cd-42f7-92e9-4195c823dc70",
 									"key": "id",
-									"value": "test",
-									"type": "string"
+									"value": "test"
 								}
 							]
 						}
@@ -928,7 +913,7 @@
 					"response": []
 				}
 			],
-			"_postman_id": "fa8b945b-1307-41d9-af18-00c06ef5de4f"
+			"id": "fa8b945b-1307-41d9-af18-00c06ef5de4f"
 		}
 	]
 }
