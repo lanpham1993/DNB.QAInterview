@@ -50,6 +50,15 @@
 											"\r",
 											"pm.test (\"scheme validate\",function(){\r",
 											"   pm.response.to.have.jsonSchema(schema);\r",
+											"})\r",
+											"\r",
+											"pm.test(\"check response header\",function(){\r",
+											"    pm.expect(pm.response.to.have.header(\"Content-Type\")).to.equal(\"application/json; charset=utf-8\");\r",
+											"    pm.response.to.have.header(\"Date\");\r",
+											"    pm.response.to.have.header(\"Content-Type\");\r",
+											"    pm.response.to.have.header(\"Server\");\r",
+											"    pm.response.to.have.header(\"Content-Encoding\");\r",
+											"    \r",
 											"})"
 										],
 										"type": "text/javascript"
