@@ -516,7 +516,7 @@
 									"script": {
 										"id": "5aa2be96-578d-4c7d-921b-667fed9fd0ba",
 										"exec": [
-											"pm.test (\"check error code when create new person with wrong datatype\",function(){\r",
+											"pm.test (\"check error code when create new person already existed\",function(){\r",
 											"    pm.response.to.have.status(400);\r",
 											"})\r",
 											"\r",
