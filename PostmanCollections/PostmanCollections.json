@@ -744,8 +744,8 @@
 							"script": {
 								"id": "1ffcc811-1802-48cb-941b-663be70a5cf3",
 								"exec": [
-									"pm.test (\"update person with valid data and save successful\",function(){\r",
-									"    pm.response.to.have.status(204);\r",
+									"pm.test (\"check error code when deleting non-existed person\",function(){\r",
+									"    pm.response.to.have.status(404);\r",
 									"})\r",
 									"\r",
 									""
