@@ -40,7 +40,7 @@
 											"\"name\": {\"type\": \"string\"},\r",
 											"\"address\": {\"type\": \"string\"},\r",
 											"\"phoneNumber\": {\"type\": \"string\"},\r",
-											"\"email1\": {\"type\": \"int\"},\r",
+											"\"email\": {\"type\": \"string\"},\r",
 											"}\r",
 											"}\r",
 											"};\r",
