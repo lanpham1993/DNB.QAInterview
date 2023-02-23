@@ -691,7 +691,7 @@
 							"script": {
 								"id": "9cd51306-cc00-46f6-a61e-067b43ff1330",
 								"exec": [
-									"pm.test (\"error when getting person with invalid id\",function(){\r",
+									"pm.test (\"check error code when getting person with invalid id\",function(){\r",
 									"    pm.response.to.have.status(404);\r",
 									"})"
 								],
