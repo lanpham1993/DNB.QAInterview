@@ -350,7 +350,7 @@
 									"})\r",
 									"\r",
 									"pm.sendRequest(pm.environment.get(\"based-url\") + \"/persons/100\", function (err, res) {\r",
-									"    pm.test (\"cannot get person just deleted\",function(){\r",
+									"    pm.test (\"check person just deleted shouldn't be loaded\",function(){\r",
 									"pm.expect(res.code).to.eql(404);\r",
 									"});         \r",
 									"});"
